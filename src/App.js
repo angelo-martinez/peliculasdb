@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-//import Header from './components/Header';
+import Header from './components/Header';
 //import NotFound from './components/NotFound';
 import Home from './views/Home';
 //import Movie from './views/Movie';
@@ -8,7 +8,7 @@ import Home from './views/Home';
 const App = () => (
   <BrowserRouter>
     <React.Fragment>
-    {/* <Header /> */}
+      <Header />
       <Switch>
         <Route path="/" component={Home} exact />
         {/* <Route path="/:movieId" component={Movie} exact />

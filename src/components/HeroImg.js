@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 
 const HeroImageWrapper = styled.div`
-
+  
 `
 
 const HeroImg = ({ image, title, text }) => (
