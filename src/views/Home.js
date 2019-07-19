@@ -98,9 +98,18 @@ class Home extends React.Component {
     }
 
     render() {
+        // ES6 Destructuring the state
+        const { movies, heroImage, loading, currentPage, totalPages, searchTerm } = this.state;
+        
         return ( 
         <div >
-            Home
+           
+            <HeroImg
+              image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
+              title={heroImage.original_title}
+              text={heroImage.overview}
+            />
+            
         </div>
         )
     }
