@@ -6,8 +6,8 @@ import {
     POSTER_SIZE,
     BACKDROP_SIZE
 } from '../config';
-import HeroImg from '../components/HeroImg';
-import SearchBar from '../components/SearchBar';
+// import HeroImg from '../components/HeroImg';
+// import SearchBar from '../components/SearchBar';
 
 class Home extends React.Component {
     state = {
@@ -19,48 +19,17 @@ class Home extends React.Component {
         searchTerm: ''
     }
 
-    componentDidMount() {
-        if (sessionStorage.getItem('HomeState')) {
-            let state = JSON.parse(sessionStorage.getItem('HomeState'))
-            this.setState({
-                ...state
-            })
-        } else {
-            this.setState({
-                loading: true
-            })
-            const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-            this.fetchItems(endpoint);
-        }
-    }
-
-    searchItems = (searchTerm) => {
-        let endpoint = '';
-        this.setState({
-            movies: [],
-            loading: true,
-            searchTerm
-        })
-
-        if (searchTerm === "") {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-        } else {
-            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}`;
-        }
+    componentDidMount() {    
+        this.setState({ loading: true });
+        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         this.fetchItems(endpoint);
     }
-
     loadMoreItems = () => {
-        // ES6 Destructuring the state
-        const {
-            searchTerm,
-            currentPage
-        } = this.state;
+        // Destructuring the state
+        const { searchTerm, currentPage } = this.state;
 
         let endpoint = '';
-        this.setState({
-            loading: true
-        })
+        this.setState({ loading: true })
 
         if (searchTerm === '') {
             endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${currentPage + 1}`;
@@ -71,46 +40,28 @@ class Home extends React.Component {
     }
 
     fetchItems = (endpoint) => {
-        // ES6 Destructuring the state
-        const {
-            movies,
-            heroImage,
-            searchTerm
-        } = this.state;
-
         fetch(endpoint)
             .then(result => result.json())
             .then(result => {
+                console.log(result);
                 this.setState({
-                    movies: [...movies, ...result.results],
-                    heroImage: heroImage || result.results[0],
+                    movies: [...this.state.movies, ...result.results],
+                    heroImage: this.state.heroImage || result.results[0],
                     loading: false,
                     currentPage: result.page,
                     totalPages: result.total_pages
-                }, () => {
-                    // Remember state for the next mount if we´re not in a search view
-                    if (searchTerm === "") {
-                        sessionStorage.setItem('HomeState', JSON.stringify(this.state));
-                    }
                 })
+                console.log(this.state);
             })
             .catch(error => console.error('Error:', error))
     }
 
     render() {
-        // ES6 Destructuring the state
-        const { movies, heroImage, loading, currentPage, totalPages, searchTerm } = this.state;
-        
+
         return ( 
-        <div >
-           
-            <HeroImg
-              image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
-              title={heroImage.original_title}
-              text={heroImage.overview}
-            />
-            
-        </div>
+            <div >
+            Home
+            </div>
         )
     }
 }
