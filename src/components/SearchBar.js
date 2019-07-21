@@ -33,6 +33,10 @@ const SearchInput = styled.input`
     height: 2.5rem;
     width: 90%;
     color: #fff;
+
+    &:focus{
+        outline: none;
+    }
 `
 
 class SearchBar extends React.Component {
@@ -43,7 +47,7 @@ class SearchBar extends React.Component {
   timeout = null;
 
   doSearch = (event) => {
-    // ES6 Destructuring prop
+    // Destructuring prop
     const { callback } = this.props;
 
     this.setState({ value: event.target.value })
@@ -62,13 +66,13 @@ class SearchBar extends React.Component {
     return (
       <SearchWrapper>
         <SeachContent>
-          <FontAwesome className="rmdb-fa-search" name="search" size="2x" 
-            style={{
-                position: "absolute",
-                left: "1.25rem",
-                top: ".75rem",
-                color: "#fff"
-            }}
+          <FontAwesome name="search" size="2x" 
+          style={{
+            position: "absolute",
+            left: "20px",
+            top: "12px",
+            color: "#fff"
+        }}
           />
           <SearchInput
             type="text"

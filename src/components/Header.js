@@ -11,7 +11,7 @@ const Logo = styled.h1`
 
 const TmdbLogo = styled.img`
     width: 7.5rem;
-    margin-top: .5rem;
+    margin-top: 1rem;
     float: right;
 `
 
@@ -26,7 +26,6 @@ const HeaderContent = styled.div `
     max-width: 80rem;
     min-height: 2rem;
     height: auto;
-    padding: 1.2rem 0px;
     margin: 0 auto;
     box-sizing: border-box;
     overflow: hidden;

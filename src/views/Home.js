@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import {
     API_URL,
     API_KEY,
@@ -8,6 +9,15 @@ import {
 } from '../config';
 import HeroImg from '../components/HeroImg';
 import SearchBar from '../components/SearchBar';
+import Grid from '../components/Grid';
+import MovieCard from '../components/MovieCard';
+import LoadMasBtn from '../components/LoadMasBtn';
+
+const HomeGrid = styled.div`
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+`
 
 class Home extends React.Component {
     state = {
@@ -21,7 +31,7 @@ class Home extends React.Component {
 
     componentDidMount() {    
         this.setState({ loading: true });
-        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=1`;
         this.fetchItems(endpoint);
     }
 
@@ -34,9 +44,9 @@ class Home extends React.Component {
         })
 
         if (searchTerm === "") {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=1`;
         } else {
-            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}`;
+            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=es&query=${searchTerm}`;
         }
         this.fetchItems(endpoint);
     }
@@ -49,9 +59,9 @@ class Home extends React.Component {
         this.setState({ loading: true })
 
         if (searchTerm === '') {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${currentPage + 1}`;
+            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=${currentPage + 1}`;
         } else {
-            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}&page=${currentPage + 1}`;
+            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=es&query=${searchTerm}&page=${currentPage + 1}`;
         }
         this.fetchItems(endpoint);
     }
@@ -86,7 +96,28 @@ class Home extends React.Component {
                         text={heroImage.overview}
                     />
                     <SearchBar callback={this.searchItems}/>
-                    </div> : null }
+                    </div> : null 
+                }
+                <HomeGrid>
+                    <Grid
+                        header={searchTerm ? 'Resultado de búsqueda' : 'Peliculas populares'}
+                        loading={loading}
+                    >
+                    {movies.map( (element, i) => (
+                        <MovieCard
+                            key={i}
+                            clickable={true}
+                            image={element.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}` : './images/no_image.jpg'}
+                            movieId={element.id}
+                            movieName={element.original_title}
+                        />
+                    ))}
+                    </Grid> 
+                </HomeGrid>
+                {(currentPage <= totalPages && !loading) ?
+                <LoadMasBtn text="Carga más" onClick={this.loadMoreItems} />
+                : null
+                }
             </div>
         )
     }
