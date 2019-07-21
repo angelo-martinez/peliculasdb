@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const MovieCardDiv = styled.div`
     & img{
         width: 100%;
-        height: auto;
+        height: 26.25rem;
         transition: all 0.3s;
         object-fit: cover;
         border-radius: 10px;
+        margin-bottom: 10px;
     }
 `
 

@@ -12,6 +12,7 @@ import SearchBar from '../components/SearchBar';
 import Grid from '../components/Grid';
 import MovieCard from '../components/MovieCard';
 import LoadMasBtn from '../components/LoadMasBtn';
+import Spinner from '../components/Spinner';
 
 const HomeGrid = styled.div`
     max-width: 80rem;
@@ -112,12 +113,13 @@ class Home extends React.Component {
                             movieName={element.original_title}
                         />
                     ))}
-                    </Grid> 
+                    </Grid>
+                    {loading ? <Spinner /> : null} 
+                    {(currentPage <= totalPages && !loading) ?
+                    <LoadMasBtn text="Carga más" onClick={this.loadMoreItems} />
+                    : null
+                    }
                 </HomeGrid>
-                {(currentPage <= totalPages && !loading) ?
-                <LoadMasBtn text="Carga más" onClick={this.loadMoreItems} />
-                : null
-                }
             </div>
         )
     }
