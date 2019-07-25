@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const HeroImageWrapper = styled.div`
-  background: 100%, cover;
+  background: 100%;
+  background-size: cover !important;
   background-position: center, center !important;
   width: 100%;
   height: 600px;

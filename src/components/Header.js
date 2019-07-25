@@ -53,10 +53,11 @@ class Header extends React.Component{
           <Link to="/">
             <Logo>Peliculas-db</Logo>
           </Link>
-          <TmdbLogo src="/images/tmdb_logo.png" alt="tmdb-logo" />
-          <FontAwesome name="search" size="2x" className="mt-3 mr-2" onClick={this.toggle} style={{
+          <TmdbLogo src="/images/tmdb_logo.png" alt="tmdb-logo" className="mb-2"/>
+          <FontAwesome name="search" size="2x" className="mt-4 mr-4" onClick={this.toggle} style={{
                 float: "right",
-                color: "#fff"
+                color: "#fff",
+                cursor: "pointer"
             }}
           />
         </HeaderContent>

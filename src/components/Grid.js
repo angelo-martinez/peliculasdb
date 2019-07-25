@@ -16,8 +16,9 @@ const FadeInGrid = styled.div`
 `
 
 const FourColGrid = styled.div`
+    text-align: center;
     & h1{
-        font-size: 2.6rem;
+        font-size: 3.6rem;
     }
 `
 
@@ -40,7 +41,7 @@ const Grid = ({ header, loading, children }) => {
 
     return (
     <FourColGrid>
-        {header && !loading ? <h1>{header}</h1> : null}
+            {header && !loading ? <h1>{header}</h1> : null}
         <GridContent>
             {renderElements()}
         </GridContent>

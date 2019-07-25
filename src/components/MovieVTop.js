@@ -17,7 +17,7 @@ const MovieTopContent = styled.div`
     width: 100%;
 `
 
-const MovieTop = ({ movie }) => (
+const MovieVTop = ({ movie }) => (
   <MovieTopWrapper>
     <MovieTopContent>
         <div className="row">
@@ -31,8 +31,8 @@ const MovieTop = ({ movie }) => (
   </MovieTopWrapper>
 )
 
-MovieTop.propTypes = {
+MovieVTop.propTypes = {
   movie: PropTypes.string
 }
 
-export default MovieTop;
+export default MovieVTop;

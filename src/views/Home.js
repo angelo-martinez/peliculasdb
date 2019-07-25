@@ -7,7 +7,6 @@ import {
 } from '../config';
 import { Context } from "../store/appContext";
 import HeroImg from '../components/HeroImg';
-import SearchBar from '../components/SearchBar';
 import Grid from '../components/Grid';
 import MovieCard from '../components/MovieCard';
 import LoadMasBtn from '../components/LoadMasBtn';
@@ -18,13 +17,17 @@ const HomeGrid = styled.div`
     margin: 0 auto;
     padding: 0 1.25rem;
 `
+const HomeWrapper = styled.div`
+    background-color: #141414;
+    color: #fff;
+`
 
 const Home = () => {
     return ( 
         <Context.Consumer>
             {({ store, actions }) => {
                 return(
-                    <div >
+                    <HomeWrapper>
                         {store.heroImage ?
                             <div>
                             <HeroImg
@@ -55,7 +58,7 @@ const Home = () => {
                             : null
                             }
                         </HomeGrid>
-                    </div>
+                    </HomeWrapper>
                 );
             }}
         </Context.Consumer>

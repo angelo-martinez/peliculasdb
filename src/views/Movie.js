@@ -4,8 +4,7 @@ import {
     API_KEY 
 } from '../config';
 import styled from 'styled-components';
-import MovieTop from '../components/MovieTop'
-import Spinner from '../components/Spinner';
+import MovieVTop from '../components/MovieVTop';
 
 const MovieWrapper = styled.div`
 margin-bottom: 6.25rem;
@@ -78,7 +77,7 @@ class Movie extends React.Component {
       <MovieWrapper>
         {movie ?
         <div>
-          <MovieTop movie={movieName}/>
+            <MovieVTop movie={movieName}/>
         </div>
         : null }
       </MovieWrapper>
