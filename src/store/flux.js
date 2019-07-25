@@ -30,7 +30,18 @@ const getState = ({ getStore, setStore }) => {
 				} else {
 					endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=es&query=${searchTerm}`;
 				}
-				this.fetchItems(endpoint);
+				fetch(endpoint)
+				.then(result => result.json())
+					.then(result => {
+						setStore({
+							movies: [...store.movies, ...result.results],
+							heroImage: store.heroImage || result.results[0],
+							loading: false,
+							currentPage: result.page,
+							totalPages: result.total_pages
+						})
+					})
+					.catch(error => console.error('Error:', error))
 			},
 		
 			loadMoreItems: () => {
@@ -45,13 +56,24 @@ const getState = ({ getStore, setStore }) => {
 				} else {
 					endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=es&query=${store.searchTerm}&page=${store.currentPage + 1}`;
 				}
-				this.fetchItems(endpoint);
+				fetch(endpoint)
+				.then(result => result.json())
+					.then(result => {
+						setStore({
+							movies: [...store.movies, ...result.results],
+							heroImage: store.heroImage || result.results[0],
+							loading: false,
+							currentPage: result.page,
+							totalPages: result.total_pages
+						})
+					})
+					.catch(error => console.error('Error:', error))
 			},
 		
 			fetchItems: (endpoint) => {
 				//get the store
 				const store = getStore();
-				
+
 				fetch(endpoint)
 					.then(result => result.json())
 					.then(result => {

@@ -32,7 +32,6 @@ const Home = () => {
                                 title={store.heroImage.title}
                                 text={store.heroImage.overview}
                             />
-                            <SearchBar callback={actions.searchItems}/>
                             </div> : null 
                         }
                         <HomeGrid>

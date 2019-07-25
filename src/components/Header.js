@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from "../store/appContext";
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 import { Collapse, CardBody, Card } from 'reactstrap';
@@ -62,11 +63,16 @@ class Header extends React.Component{
         <Collapse isOpen={this.state.collapse}>
           <Card>
             <CardBody>
-              <SearchBar />
+            <Context.Consumer>
+              {({ actions }) => {
+                  return <SearchBar callback={actions.searchItems}/>
+              }}
+            </Context.Consumer>
             </CardBody>
           </Card>
         </Collapse>
       </HeaderDiv>
+     
     );
   }
 }
