@@ -4,18 +4,22 @@ import Header from './components/Header';
 import Home from './views/Home';
 import Movie from './views/Movie';
 import NotFound from './components/NotFound';
+import injectContext from "./store/appContext";
+
 
 const App = () => (
-  <BrowserRouter>
-    <React.Fragment>
-      <Header />
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/:movieId" component={Movie} exact />
-        <Route component={NotFound} />
-      </Switch>
-    </React.Fragment>
-  </BrowserRouter>
+  <div className="d-flex flex-column h-100">
+    <BrowserRouter>
+      <React.Fragment>
+        <Header />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/:movieId" component={Movie} exact />
+          <Route component={NotFound} />
+        </Switch>
+      </React.Fragment>
+    </BrowserRouter>
+  </div>
 )
 
-export default App;
+export default injectContext(App);

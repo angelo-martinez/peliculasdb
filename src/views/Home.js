@@ -71,7 +71,6 @@ class Home extends React.Component {
         fetch(endpoint)
             .then(result => result.json())
             .then(result => {
-                console.log(result);
                 this.setState({
                     movies: [...this.state.movies, ...result.results],
                     heroImage: this.state.heroImage || result.results[0],
@@ -79,7 +78,6 @@ class Home extends React.Component {
                     currentPage: result.page,
                     totalPages: result.total_pages
                 })
-                console.log(this.state);
             })
             .catch(error => console.error('Error:', error))
     }

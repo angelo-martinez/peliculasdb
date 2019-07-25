@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
+import { Collapse, CardBody, Card } from 'reactstrap';
+import SearchBar from '../components/SearchBar';
 
 const HeaderDiv = styled.div`
     width: 100%;
@@ -33,22 +35,40 @@ const TmdbLogo = styled.img`
     float: right;
 `
 
-const Header = () => (
-  <HeaderDiv>
-    <HeaderContent>
-      <Link to="/">
-        <Logo>Peliculas-db</Logo>
-      </Link>
-      <FontAwesome name="search" size="2x" style={{
-            float: "left",
-            left: "20px",
-            top: "12px",
-            color: "#fff"
-        }}
-      />
-      <TmdbLogo src="/images/tmdb_logo.png" alt="tmdb-logo" />
-    </HeaderContent>
-  </HeaderDiv>
-)
+class Header extends React.Component{
+  constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = { collapse: false };
+  }
+  toggle() {
+    this.setState(state => ({ collapse: !state.collapse }));
+  }
+
+  render() {
+    return (
+      <HeaderDiv>
+        <HeaderContent>
+          <Link to="/">
+            <Logo>Peliculas-db</Logo>
+          </Link>
+          <TmdbLogo src="/images/tmdb_logo.png" alt="tmdb-logo" />
+          <FontAwesome name="search" size="2x" className="mt-3 mr-2" onClick={this.toggle} style={{
+                float: "right",
+                color: "#fff"
+            }}
+          />
+        </HeaderContent>
+        <Collapse isOpen={this.state.collapse}>
+          <Card>
+            <CardBody>
+              <SearchBar />
+            </CardBody>
+          </Card>
+        </Collapse>
+      </HeaderDiv>
+    );
+  }
+}
 
 export default Header;
