@@ -25,23 +25,13 @@ const injectContext = PassedComponent => {
 		}
 
 		componentDidMount() {
-			/**
-			 * EDIT THIS!
-			 * This function is the equivalent to "window.onLoad", it only run once on the entire application lifetime
-			 * you should do your ajax requests or fetch api requests here
-			 **/
 			const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=es&page=1`;
-			fetch(
-				endpoint
-			)
+			let store = this.state.store;
+			this.setState({ loading: true });
+			fetch(endpoint)
 				.then(response => {
-					if (response.status !== 200) {
-						alert("Connection error, status " + response.status);
-						return;
-					}
 					response.json()
 					.then(data => {
-						let store = this.state.store;
 						store.movies = data.results;
 						store.heroImage= data.results[0];
 						store.loading= false;
@@ -51,9 +41,7 @@ const injectContext = PassedComponent => {
 						console.log(this.state);
 					});
 				})
-				.catch(err => {
-					alert("Fetch error: ", err);
-				});
+				.catch(error => console.error('Error:', error));
 		}
 
 		render() {
