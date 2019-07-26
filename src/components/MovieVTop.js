@@ -22,10 +22,10 @@ const MovieVTop = ({ movie }) => (
     <MovieTopContent>
         <div className="row">
             <Link to="/">
-                <p>Home</p>
+                <div>Home</div>
             </Link>
-            <p>/</p>
-            <p>{movie}</p>
+            <div style={{margin: "2px"}}>/</div>
+            <div style={{margin: "2px"}}>{movie}</div>
         </div>
     </MovieTopContent>
   </MovieTopWrapper>

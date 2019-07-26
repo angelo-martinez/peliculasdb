@@ -30,11 +30,11 @@ const Home = () => {
                     <HomeWrapper>
                         {store.heroImage ?
                             <div>
-                            <HeroImg
-                                image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${store.heroImage.backdrop_path}`}
-                                title={store.heroImage.title}
-                                text={store.heroImage.overview}
-                            />
+                                <HeroImg
+                                    image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${store.heroImage.backdrop_path}`}
+                                    title={store.heroImage.title}
+                                    text={store.heroImage.overview}
+                                />
                             </div> : null 
                         }
                         <HomeGrid>

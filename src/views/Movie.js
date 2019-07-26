@@ -5,6 +5,7 @@ import {
 } from '../config';
 import styled from 'styled-components';
 import MovieVTop from '../components/MovieVTop';
+import MovieVInfo from '../components/MovieVInfo';
 
 const MovieWrapper = styled.div`
 margin-bottom: 6.25rem;
@@ -27,7 +28,7 @@ class Movie extends React.Component {
       this.setState({ ...state })
     } else {
       this.setState({ loading: true })
-      // First fetch the movie if nothing is in localstorage
+      // fetch the movie if nothing is in localstorage
       let endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=es`;
       this.fetchItems(endpoint);
     }
@@ -78,6 +79,7 @@ class Movie extends React.Component {
         {movie ?
         <div>
             <MovieVTop movie={movieName}/>
+            <MovieVInfo movie={movie} directors={directors} />
         </div>
         : null }
       </MovieWrapper>
