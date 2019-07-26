@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components';
+import { device } from '../query';
 
 const fadeIn = keyframes`
     0% {
@@ -19,6 +20,10 @@ const FourColGrid = styled.div`
     text-align: center;
     & h1{
         font-size: 3.6rem;
+        
+        @media ${device.tablet} {
+            font-size: 1.8rem;
+        }
     }
 `
 
@@ -27,6 +32,14 @@ const GridContent = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 40px;
     position: relative;
+    
+    @media ${device.tablet} {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media ${device.mobileM} {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `
 
 const Grid = ({ header, loading, children }) => {

@@ -6,7 +6,7 @@ import FontAwesome from 'react-fontawesome';
 const SearchWrapper = styled.div`
     width: 100%;
     height: 6.5rem;
-    background: #1c1c1c;
+    background: #141414;
     position: relative;
     padding: 1.6rem 1.25rem 0px 1.25rem;
     box-sizing: border-box;

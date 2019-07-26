@@ -5,11 +5,12 @@ import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 import { Collapse, CardBody, Card } from 'reactstrap';
 import SearchBar from '../components/SearchBar';
+import { device } from '../query';
 
 const HeaderDiv = styled.div`
     width: 100%;
     height: auto;
-    background: #1c1c1c;
+    background: #141414;
     padding: 0 1.2rem;
     box-sizing: border-box;
 `
@@ -21,6 +22,10 @@ const HeaderContent = styled.div `
     margin: 0 auto;
     box-sizing: border-box;
     overflow: hidden;
+
+    @media ${device.mobileXL} {
+      min-height: 0px;
+    }
 `
 const Logo = styled.h1`
   padding-top: 10px;
@@ -28,12 +33,30 @@ const Logo = styled.h1`
   float: left;
   color: white;
   font-family: 'Rock Salt', cursive;
-`
 
+  @media ${device.mobileXL} {
+    font-size: 1.25rem;
+  }
+`
+const FontAwesomeWrapper = styled.div`
+  float: right;
+  color: #fff;
+  cursor: pointer;
+
+  @media ${device.mobileL} {
+    display: inline-block;
+    font-size: 10px;
+  }
+`
 const TmdbLogo = styled.img`
     width: 7.5rem;
     margin-top: 1rem;
     float: right;
+
+    @media ${device.mobileXL} {
+      display: inline-block;
+      width: 5rem;
+    }
 `
 
 class Header extends React.Component{
@@ -54,12 +77,9 @@ class Header extends React.Component{
             <Logo>Peliculas-db</Logo>
           </Link>
           <TmdbLogo src="/images/tmdb_logo.png" alt="tmdb-logo" className="mb-2"/>
-          <FontAwesome name="search" size="2x" className="mt-4 mr-4" onClick={this.toggle} style={{
-                float: "right",
-                color: "#fff",
-                cursor: "pointer"
-            }}
-          />
+          <FontAwesomeWrapper>
+            <FontAwesome name="search" size="2x" className="mt-4 mr-4" onClick={this.toggle}/>
+          </FontAwesomeWrapper>
         </HeaderContent>
         <Collapse isOpen={this.state.collapse}>
           <Card>
