@@ -54,7 +54,7 @@ const Home = () => {
                             </Grid>
                             {store.loading ? <Spinner /> : null} 
                             {(store.currentPage <= store.totalPages && !store.loading) ?
-                            <LoadMasBtn text="Carga más" onClick={actions.loadMoreItems} />
+                            <LoadMasBtn text="Carga Más" onClick={actions.loadMoreItems} />
                             : null
                             }
                         </HomeGrid>

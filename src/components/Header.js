@@ -27,12 +27,12 @@ const HeaderContent = styled.div `
       min-height: 0px;
     }
 `
-const Logo = styled.h1`
+export const Logo = styled.h1`
   padding-top: 10px;
   width: auto;
   float: left;
-  color: white;
-  font-family: 'Rock Salt', cursive;
+  color: #E50914;
+  font-family: 'Righteous', cursive;
 
   @media ${device.mobileXL} {
     font-size: 1.25rem;
@@ -74,7 +74,7 @@ class Header extends React.Component{
       <HeaderDiv>
         <HeaderContent>
           <Link to="/">
-            <Logo>Peliculas-db</Logo>
+            <Logo>Peliculas-BD</Logo>
           </Link>
           <TmdbLogo src="/images/tmdb_logo.png" alt="tmdb-logo" className="mb-2"/>
           <FontAwesomeWrapper>

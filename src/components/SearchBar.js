@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
+import {
+  withRouter
+} from 'react-router-dom';
 
 const SearchWrapper = styled.div`
     width: 100%;
@@ -55,6 +58,7 @@ class SearchBar extends React.Component {
     // Set a timeout to wait for the user to stop writing
     // So we don´t have to make unnessesary calls
     this.timeout = setTimeout( () => {
+      this.props.history.push('/');
       callback(this.state.value);
     }, 500);
   }
@@ -90,4 +94,4 @@ SearchBar.propTypes = {
   callback: PropTypes.func
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

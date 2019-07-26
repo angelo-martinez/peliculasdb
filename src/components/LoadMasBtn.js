@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Button = styled.div`
-  background: #16d47b;
+  background: #E50914;
   width: 100%;
   min-height: 1.5rem;
   text-align: center;
@@ -19,6 +19,7 @@ const Button = styled.div`
   & p {
     font-size:42px;
     padding: 5px;
+    font-family: 'Righteous', cursive;
   }
 `
 

@@ -20,6 +20,8 @@ const FourColGrid = styled.div`
     text-align: center;
     & h1{
         font-size: 3.6rem;
+        color: #E50914;
+        font-family: 'Righteous', cursive;
         
         @media ${device.tablet} {
             font-size: 1.8rem;

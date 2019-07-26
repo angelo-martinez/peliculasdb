@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './views/Home';
 import Movie from './views/Movie';
 import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 import injectContext from "./store/appContext";
 
 
@@ -17,6 +18,7 @@ const App = () => (
           <Route path="/:movieId" component={Movie} exact />
           <Route component={NotFound} />
         </Switch>
+        <Footer />
       </React.Fragment>
     </BrowserRouter>
   </div>
