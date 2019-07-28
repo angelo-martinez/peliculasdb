@@ -15,3 +15,8 @@ body {
 .card-body {
   padding: 0 !important;
 }
+
+::selection {
+  background-color: #E50914;
+  color: #fff;
+}

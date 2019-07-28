@@ -6,9 +6,11 @@ import {
 import styled from 'styled-components';
 import MovieVTop from '../components/MovieVTop';
 import MovieVInfo from '../components/MovieVInfo';
+import MovieVBar from '../components/MovieVBar';
 
 const MovieWrapper = styled.div`
-margin-bottom: 6.25rem;
+  padding-bottom: 6.25rem;
+  background-color: #141414;
 `
 
 class Movie extends React.Component {
@@ -80,6 +82,7 @@ class Movie extends React.Component {
         <div>
             <MovieVTop movie={movieName}/>
             <MovieVInfo movie={movie} directors={directors} />
+            <MovieVBar time={movie.runtime} budget={movie.budget} revenue={movie.revenue} date={movie.release_date} />
         </div>
         : null }
       </MovieWrapper>

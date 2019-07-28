@@ -2,7 +2,8 @@ import React from "react";
 import getState from "./flux.js";
 import {
     API_URL,
-    API_KEY
+	API_KEY,
+	RANDOM_NUMBER
 } from '../config';
 
 // Don't change, here is where we initialize our context, by default its just going to be Null.
@@ -33,7 +34,7 @@ const injectContext = PassedComponent => {
 					response.json()
 					.then(data => {
 						store.movies = data.results;
-						store.heroImage= data.results[0];
+						store.heroImage= data.results[RANDOM_NUMBER];
 						store.loading= false;
 						store.currentPage= data.page;
 						store.totalPages= data.total_pages;

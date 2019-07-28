@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const MovieTopWrapper = styled.div`
     width: 100%;
     height: auto;
-    background: #353535;
+    background: #1c1c1c;
     color: #fff;
 `
 

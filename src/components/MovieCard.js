@@ -10,7 +10,6 @@ const MovieCardDiv = styled.div`
         transition: all 0.3s;
         object-fit: cover;
         border-radius: 10px;
-        margin-bottom: 10px;
     }
 `
 

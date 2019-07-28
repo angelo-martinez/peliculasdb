@@ -59,6 +59,7 @@ class SearchBar extends React.Component {
     // So we don´t have to make unnessesary calls
     this.timeout = setTimeout( () => {
       this.props.history.push('/');
+      window.scrollTo(0, 700);
       callback(this.state.value);
     }, 500);
   }

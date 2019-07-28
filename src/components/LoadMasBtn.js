@@ -6,6 +6,7 @@ const Button = styled.div`
   background: #E50914;
   width: 100%;
   min-height: 1.5rem;
+  margin-top: 1rem;
   text-align: center;
   color: #fff;
   cursor: pointer;
