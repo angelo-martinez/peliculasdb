@@ -4,9 +4,9 @@ import {
     API_KEY 
 } from '../config';
 import styled from 'styled-components';
-import MovieVTop from '../components/MovieVTop';
-import MovieVInfo from '../components/MovieVInfo';
-import MovieVBar from '../components/MovieVBar';
+import MovieVTop from '../components/movieView/MovieVTop';
+import MovieVInfo from '../components/movieView/MovieVInfo';
+import MovieVBar from '../components/movieView/MovieVBar';
 
 const MovieWrapper = styled.div`
   padding-bottom: 6.25rem;

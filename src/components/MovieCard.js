@@ -23,7 +23,7 @@ const ClickableImg = styled.img`
 const MovieCard = ({ image, movieId, movieName, clickable }) => (
   <MovieCardDiv>
     {clickable ?
-      <Link to={{ pathname: `/${movieId}`,  movieName: `${movieName}`}}>
+      <Link to={{ pathname: `/pelicula/${movieId}`,  movieName: `${movieName}`}}>
         <ClickableImg src={image} alt="movie poster" />
       </Link>
       :

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
-import { calcTime, convertMoney } from '../helpers.js';
+import { calcTime, convertMoney } from '../../helpers.js';
 
 const InfoBar = styled.div`
     display: flex;

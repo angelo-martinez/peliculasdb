@@ -6,7 +6,7 @@ import Movie from './views/Movie';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
 import injectContext from "./store/appContext";
-
+import { ThemeContext } from 'styled-components';
 
 const App = () => (
   <div className="d-flex flex-column h-100">
@@ -14,9 +14,9 @@ const App = () => (
       <React.Fragment>
         <Header />
         <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/:movieId" component={Movie} exact />
-          <Route component={NotFound} />
+          <Route exact path="/" component={Home} />
+          <Route path="/pelicula/:movieId" component={Movie} />
+          <Route render={NotFound} />
         </Switch>
         <Footer />
       </React.Fragment>
